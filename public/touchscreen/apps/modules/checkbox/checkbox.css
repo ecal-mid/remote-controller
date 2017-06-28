@@ -1,0 +1,75 @@
+.checkbox {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid rgb(50, 50, 50);
+}
+
+    .light .checkbox {
+        border-color: rgba(0, 90, 106, 0.25)
+    }
+
+    .name {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 10;
+    }
+
+    .wrapper {
+        width: 100%;
+        max-width: calc(100% - 2rem);
+        max-height: calc(100% - 2rem);
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+        .container {
+            display: inline-block;
+            margin: 1em;
+            text-align: center;
+        }
+
+            .button {
+                display: inline-block;
+                width: 100px;
+                height: 100px;
+                border: 1px solid rgb(50, 50, 50);
+                border-radius: 10px;
+                touch-action: manipulation;
+                background-color: transparent;
+            }
+
+                .light .button {
+                    border-color: rgba(0, 90, 106, 0.25);
+                }
+
+                .button.momentary {
+                    border-radius: 100px;
+                    transition: background-color 0.25s ease-in-out;
+                }
+
+                    .button.momentary.active {
+                        transition-duration: 0s;
+                    }
+
+                .button.active {
+                    background-color: white;
+                }
+
+                    .light .button.active {
+                        background-color: rgb(0, 90, 106);
+                    }
+
+            .caption {
+                margin-top: 0.5em;
+            }

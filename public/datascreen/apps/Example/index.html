@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html,
+            body {
+                height: 100%;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="../../js/socket.io.min.js"></script>
+        <script>
+            var socket = io();
+            var connected = false;
+
+            socket.on('type', function() {
+                socket.emit('type', JSON.stringify({"type" : "application"}));
+            });
+
+            socket.on('sendData', function(json) {
+                var data = JSON.parse(json);
+                switch(data.event) {
+                    case 'updateXY':
+                        console.log(data.valueX);
+                        console.log(data.valueY);
+                        break;
+
+                    case 'updateX':
+                        console.log(data.valueX);
+                        break;
+
+                    case 'updateY':
+                        console.log(data.valueY);
+                        break;
+
+                    case 'button':
+                        console.log(data.state);
+                        break;
+
+                    case 'checkbox':
+                        console.log(data.state);
+                        break;
+
+                    case 'checkbox1':
+                        console.log(data.state);
+                        break;
+
+                    case 'checkbox2':
+                        console.log(data.state);
+                        break;
+
+                    case 'checkbox3':
+                        console.log(data.state);
+                        break;
+
+                    case 'swipeXY':
+                        console.log(data.direction);
+                        break;
+
+                    default:
+                        break;
+                }
+            });
+
+            // to call when everything's ready
+            parent.postMessage("loaded", "/");
+        </script>
+    </body>
+</html>
