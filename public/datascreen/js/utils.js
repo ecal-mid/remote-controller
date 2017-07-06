@@ -250,11 +250,11 @@ function addMultipleEventListener(e, el, callback) {
 var AJAX = function(callback) {
     this.xhr = new XMLHttpRequest();
     this.xhr.addEventListener('readystatechange', function() {
-        if(xhr.readyState == 4 && xhr.status == 200) {
+        if(this.readyState == 4 && this.status == 200) {
             var url = this.responseURL;
             url = url.substring(0, url.indexOf('?'));
 
-            callback(xhr.responseText, url);
+            callback(this.responseText, url);
         }
     });
 }
@@ -268,8 +268,8 @@ AJAX.prototype = {
                 url += '&ajax=true';
             }
         }
-        xhr.open('GET', url, true);
-        xhr.send();
+        this.xhr.open('GET', url, true);
+        this.xhr.send();
     }
 }
 
